@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Encontre roupas femininas modernas e elegantes.">
+  <title>Pink Boutique | Moda Feminina</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="manifest" href="manifest.json
+</head>
+<body>
+
+<header class="header">
+  <a href="#" class="logo">pink<span> boutique.</span></a>
+
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#sobre">Sobre nós</a>
+  </nav>
+
+  <button class="cart-button" onclick="toggleCart()">
+    🛍 Sacola <span id="cart-count">0</span>
+  </button>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <span class="eyebrow">NOVA COLEÇÃO</span>
+      <h1>Vista sua<br><span>melhor versão.</span></h1>
+      <p>Moda, delicadeza e personalidade em cada detalhe.</p>
+      <a href="#produtos" class="primary-button">Comprar agora</a>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1000" alt="Coleção de moda feminina">
+    </div>
+  </section>
+
+  <section class="benefits">
+    <div>♡ <strong>Moda com estilo</strong><small>Peças selecionadas</small></div>
+    <div>✧ <strong>Novidades</strong><small>Novas coleções</small></div>
+    <div>♡ <strong>Compra fácil</strong><small>Praticidade e carinho</small></div>
+  </section>
+
+  <section class="products-section" id="produtos">
+    <div class="section-heading">
+      <span class="eyebrow">ESCOLHIDOS PARA VOCÊ</span>
+      <h2>Nossos produtos</h2>
+      <p>Descubra peças que combinam com você.</p>
+    </div>
+
+    <div id="categories" class="categories">
+      <button class="category active" onclick="filterProducts('Todos', this)">Todos</button>
+      <button class="category" onclick="filterProducts('Vestidos', this)">Vestidos</button>
+      <button class="category" onclick="filterProducts('Blusas', this)">Blusas</button>
+      <button class="category" onclick="filterProducts('Calças', this)">Calças</button>
+      <button class="category" onclick="filterProducts('Conjuntos', this)">Conjuntos</button>
+    </div>
+
+    <div id="products" class="products-grid">
+      <p class="loading">Carregando produtos...</p>
+    </div>
+  </section>
+
+  <section class="promo" id="sobre">
+    <span class="eyebrow">PINK BOUTIQUE</span>
+    <h2>Seu estilo, suas regras.</h2>
+    <p>Acreditamos que toda mulher merece se sentir linda, confiante e especial.</p>
+    <a href="#produtos" class="primary-button">Conheça a coleção</a>
+  </section>
+</main>
+
+<footer>
+  <a href="#" class="logo">pink<span> boutique.</span></a>
+  <p>Moda feita para você. ♡</p>
+  <small>© 2026 Pink Boutique. Todos os direitos reservados.</small>
+</footer>
+
+<!-- Carrinho -->
+<div id="cart-overlay" class="overlay" onclick="toggleCart()"></div>
+
+<aside id="cart" class="cart">
+  <div class="cart-header">
+    <h2>Sua sacola ♡</h2>
+    <button onclick="toggleCart()" class="close-button">✕</button>
+  </div>
+
+  <div id="cart-items" class="cart-items">
+    <p class="empty-cart">Sua sacola está vazia.</p>
+  </div>
+
+  <div class="cart-footer">
+    <div class="total">
+      <span>Total</span>
+      <strong id="cart-total">R$ 0,00</strong>
+    </div>
+    <button class="primary-button checkout-button" onclick="openCheckout()">
+      Finalizar compra
+    </button>
+  </div>
+</aside>
+
+<!-- Checkout -->
+<div id="checkout-modal" class="modal">
+  <div class="modal-content">
+    <button class="close-button modal-close" onclick="closeCheckout()">✕</button>
+    <span class="eyebrow">QUASE LÁ!</span>
+    <h2>Finalizar pedido</h2>
+    <p>Preencha seus dados para registrar sua compra.</p>
+
+    <form id="checkout-form">
+      <label>Nome completo</label>
+      <input type="text" id="customer-name" required maxlength="120">
+
+      <label>E-mail</label>
+      <input type="email" id="customer-email" required maxlength="254">
+
+      <label>Telefone</label>
+      <input type="tel" id="customer-phone" required maxlength="30">
+
+      <label>Endereço completo</label>
+      <textarea id="customer-address" required maxlength="500"></textarea>
+
+      <button type="submit" class="primary-button checkout-button">
+        Confirmar pedido
+      </button>
+    </form>
+    <p id="checkout-message"></p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
