@@ -1,8 +1,8 @@
 {
-    "name": "Petshop",
-    "short_name": "Pet",
-    "description": "Projeto PWA Etec São Mateus",
-    "start_url": "index.html",
+    "name": "Arroz",
+    "short_name": "Arroz",
+    "description": "Projeto PWA Etec Aprígio Gonzaga",
+    "start_url": "./index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
