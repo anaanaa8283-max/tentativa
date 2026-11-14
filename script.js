@@ -328,3 +328,10 @@ document.addEventListener("DOMContentLoaded", () => {
   loadProducts();
   updateCart();
 });
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then(reg => console.log('Service Worker registado com sucesso!', reg))
+      .catch(err => console.log('Falha ao registar o Service Worker:', err));
+  });
+}
